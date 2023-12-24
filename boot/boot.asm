@@ -26,6 +26,8 @@ go:
     mov     dh, 0x02
     call    disk_load
 
+    mov     dx, [es:bx]     ; <- pointer to buffer where the data will be stored
+    call    print_hex
 
 jmp     $
 
