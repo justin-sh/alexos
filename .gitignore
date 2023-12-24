@@ -54,5 +54,8 @@ dkms.conf
 # for os dev
 *.bin
 
+# for macos
+.DS_Store
+
 # vscode
 .vscode
