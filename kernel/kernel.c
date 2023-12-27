@@ -13,6 +13,7 @@
 #endif
 
 /*we will use VGA text mode buffer (located at 0xB8000)*/
+#define VGA_ADDRESS 0xB8000;
 
 /* Hardware text mode color constants. */
 enum vga_color
@@ -67,7 +68,7 @@ void terminal_initialize(void)
     terminal_row = 0;
     terminal_column = 0;
     terminal_color = vga_entry_color(VGA_COLOR_LIGHT_GREY, VGA_COLOR_BLACK);
-    terminal_buffer = (uint16_t *)0xB8000;
+    terminal_buffer = (uint16_t *)VGA_ADDRESS;
     for (size_t y = 0; y < VGA_HEIGHT; y++)
     {
         for (size_t x = 0; x < VGA_WIDTH; x++)
@@ -117,5 +118,5 @@ void kernel_main(void)
     terminal_initialize();
 
     /* Newline support is left as an exercise. */
-    terminal_writestring("Hello, kernel World!\n");
+    terminal_writestring("Hello, kernel World!");
 }

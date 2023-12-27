@@ -50,17 +50,18 @@ jmp     $
 
 %include 'boot/print.asm'
 %include 'boot/disk.asm'
-%include 'gdt32.asm'
-%include 'switch2_32.asm'
-%include 'print32.asm'
+%include 'boot/gdt32.asm'
+%include 'boot/switch2_32.asm'
+%include 'boot/print32.asm'
 
 [bits 32]
 BEGIN_PM:
     mov     ebx, MSG_PM_MODE
     call    print32 ; Use our 32 - bit print routine.
+    call    LOADER_ADDRESS
     jmp     $ ; Hang.
 
-LOADER_ADDRESS      equ 0x9000
+LOADER_ADDRESS      equ 0x2000
 LOADER_SECTOR_SIZE  equ 0x02
 
 MSG_REAL_MODE:
@@ -74,5 +75,5 @@ MSG_PM_MODE:
 times   510 -   ($-$$)  db  0
 dw      0xaa55
 
-times   256 dw 0xdada
-times   256 dw 0xface
+; times   256 dw 0xdada
+; times   256 dw 0xface
