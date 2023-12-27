@@ -69,7 +69,7 @@ loaddisk:
     db  'Loading disk ...', 13, 10, 0
 
 MSG_PM_MODE:
-    db  'Successfully landed in 32-bit Protected Mode', 13, 10, 0
+    db  'Successfully landed in 32-bit Protected Mode', 0
 
 times   510 -   ($-$$)  db  0
 dw      0xaa55
