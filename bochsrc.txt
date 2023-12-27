@@ -1,0 +1,7 @@
+floppya : 1_44 =alexos.bin , status=inserted
+boot : a
+
+####################
+## must be configed on MacOS, otherwise bochs will block at "Bochs connected to screen "/dev/ttys000""
+####################
+display_library: sdl2
