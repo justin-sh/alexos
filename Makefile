@@ -12,6 +12,9 @@ all: run
 run: alexos.bin
 	qemu-system-i386 -drive file=$<,format=raw,index=0,media=disk
 
+debug: alexos.bin
+	qemu-system-i386 -s -S -drive file=$<,format=raw,index=0,media=disk
+
 alexos.bin: boot/boot.bin kernel.bin
 	cat $^ > $@
 
@@ -43,4 +46,4 @@ kernel.dis: kernel.bin
 
 clean:
 	rm -f *.bin *.o *.dis
-	rm -rf kernel/*.o drivers/*.o
+	rm -rf kernel/*.o drivers/*.o boot/*.bin

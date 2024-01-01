@@ -2,31 +2,9 @@
 
 global  start
 start:
-
-    ; clear screen
-    ; mov ah, 0x06
-    ; mov al, 0x00
-    ; mov bx, 0x0700
-    ; mov cx, 0x0000
-    ; mov dh, 11
-    ; mov dl, 80
-    ; int     0x10
-
-    ; mov ah, 0x02
-    ; mov dh, 0x00
-    ; mov dl, 0x00
-    ; int 0x10
-
     ; init stack point, total 1kb from 0x7c00
     mov     bp, 0x9000
     mov     sp, bp
-
-    jmp     go
-
-go:
-    ; mov     ax, cs
-    ; mov     ds, ax
-    ; mov     es, ax
     
     ; print string
     ; bx for the start index of string(end with 0)
